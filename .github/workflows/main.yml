@@ -6,17 +6,24 @@ jobs:
     runs-on:
       - ubuntu-latest
     steps:
-    - name: retry action
-      uses: Wandalen/wretry.action@v1.0.36
-      action: Naginator-test
-      with:
-       attempt_limit: 1
-       attempt_delay: 2
     - name: checkout
       uses: actions/checkout@v3.5.0
     - name: run command
       shell: bash
       run: error script
+    - name: Checkout code
+      uses: actions/checkout@v2
+    - name: Run Action
+      id: action
+      run: |
+          # Replace this with the command to run your action
+          echo "Running action"
+
+    - name: Retry Action
+      if: ${{ steps.action.outcome != 'success' }}
+      run: |
+          # Replace this with the command to rerun your action
+          echo "Rerunning action"
 #     # This item has no matching transformer
 #     - uses: com.chikli.hudson.plugin.naginator.NaginatorPublisher
 #       with:
