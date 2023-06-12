@@ -8,6 +8,7 @@ jobs:
     steps:
     - name: retry action
       uses: Wandalen/wretry.action@v1.0.36
+      action: Naginator-test
       with:
        attempt_limit: 1
        attempt_delay: 2
