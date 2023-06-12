@@ -1,0 +1,26 @@
+name: Naginator-test
+on:
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on:
+      - ubuntu-latest
+    steps:
+    - name: checkout
+      uses: actions/checkout@v3.5.0
+    - name: run command
+      shell: bash
+      run: error script
+#     # This item has no matching transformer
+#     - uses: com.chikli.hudson.plugin.naginator.NaginatorPublisher
+#       with:
+#         plugin: naginator@1.19.2
+#         regexpForRerun:
+#         rerunIfUnstable: 'true'
+#         rerunMatrixPart: 'false'
+#         checkRegexp: 'false'
+#         regexpForMatrixStrategy: TestParent
+#         delay:
+#           class: com.chikli.hudson.plugin.naginator.FixedDelay
+#           delay: '20'
+#         maxSchedule: '1'
